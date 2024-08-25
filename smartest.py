@@ -1,5 +1,4 @@
 import random
-from datetime import datetime
 
 # Ana bulucu fonksiyonu
 def ana_bulucu():
@@ -33,37 +32,20 @@ def bulucu_ikinci_sayi(birA):
             sayar += 1
             ulasici.append(random_number2)
 
-# Tüm eşleşmeleri kontrol eden fonksiyon
-def find_matching_digits(target_numbers):
-    for target_number in target_numbers:
-        print(f"\nChecking for target number: {target_number}")
-        for _ in range(10):
-            # Generate a random number between 1 and 9
-            random_number = str(random.randint(1, 9))
-            
-            results = []
-            for _ in range(5):
-                result = ana_bulucu()
-                if result:
-                    results.append(result)
+# First Nine Digits'i yazdırma fonksiyonu
+def print_first_nine_digits():
+    results = []
+    for _ in range(5):
+        result = ana_bulucu()
+        if result:
+            results.append(result)
 
-            # Combine the results into a single string
-            combined_number = ''.join(item for tup in results for item in tup)
-            first_nine_digits = combined_number[:9]
-            print(f"\nFirst Nine Digits: {first_nine_digits}")
-            # Find matching digits at the same position for target_number and random number
-            for i in range(9):
-                if i < len(first_nine_digits) and first_nine_digits[i] == target_number[i] == random_number:
-                    print(f"Matching digit at position {i+1}: {first_nine_digits[i]} (Random Number: {random_number})")
-                    break
+    # Sonuçları tek bir string halinde birleştir
+    combined_number = ''.join(item for tup in results for item in tup)
+    first_nine_digits = combined_number[:9]
+    
+    # first_nine_digits'i yazdır
+    print(f"First Nine Digits: {first_nine_digits}")
 
-# Find and print matching digits at the same position for both target numbers
-find_matching_digits(["123456789", "987654321"])
-
-# O anki zamanı al
-now = datetime.now()
-
-# Saliseyi al
-milliseconds = now.microsecond // 10000
-
-print("Şu anki salise:", milliseconds)
+# First Nine Digits'i yazdır
+print_first_nine_digits()
