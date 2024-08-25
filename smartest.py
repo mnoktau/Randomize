@@ -50,7 +50,7 @@ def find_matching_digits(target_numbers):
             # Combine the results into a single string
             combined_number = ''.join(item for tup in results for item in tup)
             first_nine_digits = combined_number[:9]
-
+            print(f"\nFirst Nine Digits: {first_nine_digits}")
             # Find matching digits at the same position for target_number and random number
             for i in range(9):
                 if i < len(first_nine_digits) and first_nine_digits[i] == target_number[i] == random_number:
